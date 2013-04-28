@@ -6,6 +6,7 @@ import java.util.Random;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.ShapeFill;
 import org.newdawn.slick.geom.Shape;
+import org.newdawn.slick.geom.Transform;
 import org.newdawn.slick.geom.Vector2f;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,10 +20,13 @@ public class WobbleFill implements ShapeFill {
 	private float[] wobble;
 
 	private float wobblyness;
+	
+	private float offset;
 
 	public WobbleFill(Shape shape, float wobblyness) {
 		this.wobble = new float[shape.getPointCount()];
 		this.wobblyness = wobblyness;
+		this.offset = 3;
 	}
 
 	public void updateShape(Shape shape) {
@@ -44,10 +48,9 @@ public class WobbleFill implements ShapeFill {
 			wobble[index] = Math.abs(rand) > wobblyness ? Math.signum(rand)
 					* wobblyness : rand;
 			Vector2f normal = new Vector2f(shape.getNormal(index)).normalise();
-			return normal.scale(wobble[index]);
+			return normal.scale(wobble[index] - offset);
 		} else {
 			return new Vector2f();
 		}
 	}
-
 }

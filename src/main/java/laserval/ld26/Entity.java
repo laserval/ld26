@@ -13,5 +13,7 @@ public interface Entity {
 	
 	public boolean collidesWith(Entity other);
 	
-	public void doCollison(Entity other);
+	public void doCollision(Entity other);
+	
+	public void commitCollision();
 }

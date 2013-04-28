@@ -7,6 +7,8 @@ import org.newdawn.slick.geom.Vector2f;
 
 public class CyanFill implements ShapeFill {
 
+	private float offset = 3;
+
 	@Override
 	public Color colorAt(Shape shape, float x, float y) {
 		// TODO Auto-generated method stub
@@ -16,7 +18,7 @@ public class CyanFill implements ShapeFill {
 	@Override
 	public Vector2f getOffsetAt(Shape shape, float x, float y) {
 		int index = shape.indexOf(x, y);
-		return new Vector2f(shape.getNormal(index)).normalise().scale(5.f).negate();
+		return new Vector2f(shape.getNormal(index)).normalise().scale(offset).negate();
 	}
 
 }

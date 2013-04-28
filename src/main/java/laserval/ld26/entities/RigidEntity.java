@@ -38,7 +38,12 @@ public class RigidEntity implements Entity {
 	}
 	
 	@Override
-	public void doCollison(Entity other) {
+	public void doCollision(Entity other) {
+		// no op
+	}
+	
+	@Override
+	public void commitCollision() {
 		// no op
 	}
 }
