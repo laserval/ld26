@@ -1,4 +1,4 @@
-# Laserval's Ludum Dare 26 entry
+# Laserval's Ludum Dare 26 entry (not submitted)
 
 Uses:
 * Slick2d
